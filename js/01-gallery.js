@@ -29,6 +29,10 @@ function createPictureGallery(pictures) {
 
 function onGalleryPictureClick(evt) {
     evt.preventDefault()
+    const isPictureEl = evt.target.classList.contains('gallery__image')
+    if (!isPictureEl) {
+        return;
+    }
 
     instance = basicLightbox.create(`
 	<img src="${evt.target.dataset.source}">
@@ -42,6 +46,7 @@ function onGalleryPictureClick(evt) {
     }
     );
     instance.show() 
+   
 }
 
 function onEscKeyPress(event) {
